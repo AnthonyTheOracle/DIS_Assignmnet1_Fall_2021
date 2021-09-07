@@ -37,13 +37,13 @@ namespace DIS_Assignmnet1_Fall_2021
                 Console.WriteLine("No, the given string is not a pangram");
             }
             Console.WriteLine();
-            */
+            
             //Question 3:
             int[,] arr = new int[,] { { 1, 2, 3 }, { 3, 2, 1 } };
             int Wealth = MaximumWealth(arr);
             Console.WriteLine("Q3:");
             Console.WriteLine("Richest person has a wealth of {0}", Wealth);
-            /*
+            
             //Question 4:
             string jewels = "aA";
             string stones = "aAAbbbb";
