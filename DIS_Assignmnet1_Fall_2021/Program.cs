@@ -100,6 +100,7 @@ namespace DIS_Assignmnet1_Fall_2021
             int CheckVowel(int start, int length)
             {
                 int count = 0;
+                //compare each character with valid vowels and count number of vowels in string
                 for (int i = start; i < start + length; i++)
                     if (vowels.Contains(s[i])) count++;
 
@@ -116,13 +117,13 @@ namespace DIS_Assignmnet1_Fall_2021
             // For indexing in mark[]
             int index = 0;
 
-            // Traverse all characters
+            // with each sentence, traverse all characters
             for (int i = 0; i < sentence.Length; i++)
             {
-
+                //check upper case char to find/use appropriate index
                 if ('A' <= sentence[i] && sentence[i] <= 'Z')
                     index = sentence[i] - 'A';
-
+                //check lower case char to find/use appropriate index
                 else if ('a' <= sentence[i] && sentence[i] <= 'z')
                     index = sentence[i] - 'a';
 
@@ -131,21 +132,23 @@ namespace DIS_Assignmnet1_Fall_2021
 
                 mark[index] = true;
             }
-
+            //if there's no mark return false
             for (int i = 0; i <= 25; i++)
                 if (mark[i] == false)
                     return (false);
 
-            // If all characters
-            // were present
+            // return true if all characters are present
             return (true);
         }
 
         //Q3
         public static int MaximumWealth(int[,] accounts)
         {
+            //assign temp array to hold sum of wealth for each account holder
             int[] wealthArray = new int[accounts.GetLength(0)];
             int richestAccount = 0;
+
+            //for each person and account add balance for each account holder
             for (int i=0;i<accounts.GetLength(0); i++)
             {
                 for(int j = 0; j < accounts.GetLength(1); j++)
@@ -153,6 +156,7 @@ namespace DIS_Assignmnet1_Fall_2021
                     wealthArray[i] += accounts[i, j];
                 }
             }
+            //compare each account holders sum and assign value to richestAccount variable
             richestAccount = wealthArray[0];
             for (int i =0; i<wealthArray.Length; i++)
             {
@@ -161,42 +165,51 @@ namespace DIS_Assignmnet1_Fall_2021
                     richestAccount = wealthArray[i];
                 }
             }
+            //return the largest account
             return richestAccount;
         }
 
         //Q4
         public static int NumJewelsInStones(string jewels, string stones)
         {
+            //create a temp dic for all jewels
             Dictionary<char, int> myDict = new Dictionary<char, int>();
             foreach (char el in jewels) myDict.Add(el, 0);
+            //for each stone check if it's a jewel and count
             foreach (char el in stones)
             {
                 if (myDict.ContainsKey(el)) myDict[el]++;
             }
-
+            //return total number of stones that are jewels
             return myDict.Values.Sum();
         }
 
         //Q5
         public static string RestoreString(string s, int[] indices)
         {
+            //if input string is null, exist and return nothing
             if (String.IsNullOrEmpty(s))
                 return "";
 
             char[] shufflearr = new char[s.Length];
+            //shuffle array elements such that character at ith
+            //position moves to indices[i]  
             for (int i = 0; i < indices.Length; i++)
             {
                 shufflearr[indices[i]] = s[i];
             }
 
-            //return new String(shufflearr);
+            //return result after the array has been shuffled
             return new String(shufflearr);
         }
 
         //Q6
         public static int[] CreateTargetArray(int[] nums, int[] index)
         {
+            //create a temp target array and initialize it to 0
             int[] targetArray = new int[nums.Length];
+            //reading from left to right, insert at index index[i]
+            //the value nums[i] in the target array
             for (int i = 0; i < nums.Length; ++i)
             {
                 for (int j = 0; j < i; ++j)
@@ -207,6 +220,7 @@ namespace DIS_Assignmnet1_Fall_2021
                     }
                 }
             }
+            //assign value nums[i] to element at index[i] and return target array
             for(int i = 0; i < nums.Length; i++)
             {
                 targetArray[index[i]] = nums[i];
