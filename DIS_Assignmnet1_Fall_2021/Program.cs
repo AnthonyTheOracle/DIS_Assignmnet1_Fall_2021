@@ -53,7 +53,6 @@ namespace DIS_Assignmnet1_Fall_2021
             Console.WriteLine();
             
             
-
             //Question 5:
             Console.WriteLine("Q5:");
             string word2 = "aiohn";
