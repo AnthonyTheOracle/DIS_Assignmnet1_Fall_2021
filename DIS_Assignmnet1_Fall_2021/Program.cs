@@ -88,7 +88,7 @@ namespace DIS_Assignmnet1_Fall_2021
             var mid = s.Length / 2;
 
             //call the method CountVowels and return the number of vowels in first half
-            //and second half of string
+            //and second half of string.
             var firstHalf = CheckVowel(0, mid);
             var secondHalf = CheckVowel(mid, mid);
 
